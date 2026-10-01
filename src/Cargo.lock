@@ -1836,6 +1836,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "nvx"
+version = "0.1.0"
+dependencies = [
+ "getrandom 0.4.2",
+ "libc",
+ "serde",
+ "serde_json",
+ "sha2 0.10.9",
+ "thiserror",
+ "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "nvx_backend"
+version = "0.9.0"
+dependencies = [
+ "nvx",
+ "serde_json",
+ "tempfile",
+ "windows",
+ "wxc_common",
+]
+
+[[package]]
 name = "oci-spec"
 version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

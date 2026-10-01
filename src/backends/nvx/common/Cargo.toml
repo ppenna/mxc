@@ -1,0 +1,29 @@
+[package]
+name = "nvx_backend"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "State-aware MXC backend for NVX microVM sandboxes, built on the nvx crate"
+
+[features]
+default = []
+# Stage the OpenVMM executable, guest kernel, and control initramfs at build time
+# (see the nvx crate's `bundled` feature).
+bundled = ["nvx/bundled"]
+
+[dependencies]
+nvx = { workspace = true }
+serde_json = { workspace = true }
+wxc_common = { workspace = true }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows = { workspace = true }
+
+[dev-dependencies]
+nvx = { workspace = true, features = ["testing"] }
+tempfile.workspace = true
+
+# Lives outside src/bin/ because the repository ignores bin/ directories.
+[[bin]]
+name = "nvx-mxc-phase"
+path = "src/phase_cli.rs"

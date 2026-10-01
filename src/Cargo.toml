@@ -10,6 +10,7 @@ members = [
     "backends/nanvix/build_common",
     "backends/nanvix/common",
     "backends/nanvix/runner",
+    "backends/nvx/common",
     "backends/seatbelt/common",
     "backends/windows_sandbox/common",
     "backends/windows_sandbox/daemon",
@@ -145,3 +146,6 @@ windows_sandbox_lifecycle = { path = "backends/windows_sandbox/lifecycle" }
 winreg = "0.55"
 wslc_common = { path = "backends/wslc/common" }
 wxc_common = { path = "core/wxc_common" }
+# PoC: the `nvx` crate from a sibling checkout of microsoft/nvx (branch feat-nvx-rs).
+nvx = { path = "../../nvx/nvx-rs" }
+nvx_backend = { path = "backends/nvx/common" }
